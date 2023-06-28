@@ -22,7 +22,24 @@ class _MyStatefulScreenState extends State<MyStatefulScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("My name is ${names[i]}"),
-          ElevatedButton(onPressed: () {}, child: const Text("Next"))
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (i < names.length - 1) {
+                    i++;
+                  }
+                });
+              },
+              child: const Text("Next")),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (i != 0) {
+                    i--;
+                  }
+                });
+              },
+              child: const Text("Go back"))
         ],
       )),
     );
